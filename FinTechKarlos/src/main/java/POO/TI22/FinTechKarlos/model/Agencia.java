@@ -11,8 +11,29 @@ public class Agencia {
         this.numero = numero;
         this.clientes = new ArrayList<>();
     }
-
-    public void adicionarCliente(Cliente cliente) {
+    
+    public void AdicionarCliente(Cliente cliente) {
         this.clientes.add(cliente);
+    }
+    
+    @Override
+    public String toString() {
+        return "Agencia: \n\nNumero: " + getNumero() + "\nClientes: " + getClientes();
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
+
+    public List<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public void setClientes(List<Cliente> clientes) {
+        this.clientes = clientes;
     }
 }
