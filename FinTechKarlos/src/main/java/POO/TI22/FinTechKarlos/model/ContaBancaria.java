@@ -9,9 +9,17 @@ public abstract class ContaBancaria {
         this.saldo = saldo;
     }
 
-    public abstract void sacar(double valor);
+    public String sacar(double valor) {
+        saldo -= valor;
+        return "Você sacou R$ " + valor + " da conta poupança de " + titular.getNome() + ". Saldo atual: R$ " + saldo;
+    }
    
-    public void depositar(double valor) {
+    public String depositar(double valor) {
         saldo += valor;
+        return "Você depositou R$ " + valor + " na conta poupança de " + titular.getNome() + ". Saldo atual: R$ " + saldo;
+    }
+
+    public String informacoes() {
+        return "Titular: " + titular.getNome() + ", CPF: " + titular.getCpf() + ", Saldo: R$ " + saldo;
     }
 }

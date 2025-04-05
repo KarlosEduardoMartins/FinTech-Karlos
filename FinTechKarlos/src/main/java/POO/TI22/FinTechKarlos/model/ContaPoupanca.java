@@ -5,12 +5,12 @@ public class ContaPoupanca extends ContaBancaria {
         super(titular, saldo);
     }
 
-    @Override
-    public void sacar(double valor) {
-        saldo -= valor;
+    public void renderJuros() {
+        saldo *= 1.02;
     }
 
-    public void renderJuros() {
-        saldo *= 1.02; // 2% de juros ao mês
+    @Override
+    public String informacoes() {
+        return "Conta Poupança: " + super.informacoes();
     }
 }

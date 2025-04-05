@@ -9,8 +9,8 @@ public class ContaCorrente extends ContaBancaria {
     }
 
     @Override
-    public String sacar(double valor) {
-        saldo -= (valor + 5);
-        return "Conta corrente de " + titular + ": Saque de R$" + valor + " realizado. Saldo atual: R$" + saldo;
+    public String informacoes() {
+        return "Conta Corrente: " + super.informacoes() + ", Titular: " + titular;
     }
+    
 }

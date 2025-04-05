@@ -8,7 +8,8 @@ public class InvestimentoRendaFixa implements Investimento {
     }
 
     @Override
-    public double calcularRetorno() {
-        return valor * 1.05; // 5% de retorno fixo
+    public String calcularRetorno() {
+        valor *= 1.05;
+        return "Retorno do investimento em renda fixa: R$ " + valor;
     }
 }
