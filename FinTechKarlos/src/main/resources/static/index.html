@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servidor Online</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #e9f5ff; /* Azul bem claro */
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh; /* Ocupa a altura toda da tela */
+            margin: 0;
+            text-align: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            background-color: #ffffff; /* Fundo branco para o card */
+            padding: 40px 50px;
+            border-radius: 12px; /* Cantos arredondados */
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            max-width: 600px;
+            width: 100%;
+        }
+
+        h1 {
+            color: #007bff; /* Azul primário */
+            margin-bottom: 15px;
+            font-size: 2.5em; /* Tamanho maior */
+        }
+
+        .status {
+            color: #28a745; /* Verde para sucesso/online */
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 25px;
+        }
+
+        p {
+            line-height: 1.7; /* Espaçamento entre linhas */
+            color: #555; /* Cinza um pouco mais escuro */
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .postman-link {
+            display: inline-block; /* Para poder aplicar padding */
+            background-color: #FF6C37; /* Laranja característico do Postman */
+            color: #ffffff; /* Texto branco */
+            padding: 12px 25px;
+            text-decoration: none; /* Sem sublinhado */
+            border-radius: 8px; /* Cantos arredondados */
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: background-color 0.3s ease, transform 0.2s ease; /* Efeitos suaves */
+        }
+
+        .postman-link:hover {
+            background-color: #e85a27; /* Laranja um pouco mais escuro no hover */
+            transform: translateY(-2px); /* Leve levantada no hover */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Ícone simples (opcional) */
+        .icon {
+          font-size: 3em;
+          margin-bottom: 10px;
+          color: #007bff;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Servidor Ativo!</h1>
+        <div class="status">A aplicação está online e pronta.</div>
+        <p>
+            Para interagir com as APIs e testar os endpoints disponíveis,
+            recomendamos utilizar o <strong>Postman</strong>.
+        </p>
+        <a href="https://www.postman.com/" target="_blank" rel="noopener noreferrer" class="postman-link">
+            Testar APIs com Postman
+        </a>
+    </div>
+</body>
+</html>

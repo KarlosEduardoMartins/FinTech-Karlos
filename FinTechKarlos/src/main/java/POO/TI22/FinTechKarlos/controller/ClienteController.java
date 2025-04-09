@@ -20,10 +20,13 @@ public class ClienteController {
     public ResponseEntity<?> criarCliente(@Valid @RequestBody Cliente cliente) {
         try {
             Cliente novoCliente = clienteService.criarCliente(cliente);
-            System.out.println("Cliente criado: " + novoCliente.getNome() + ", CPF: " + novoCliente.getCpf());
-            return new ResponseEntity<>(novoCliente, HttpStatus.CREATED);
+            System.out.println("\nCliente criado: " + novoCliente.getNome() + ", CPF: " + novoCliente.getCpf() + ".");
+            return ResponseEntity.status(HttpStatus.CREATED)
+                    .body("Cliente criado com sucesso!\n" + "\nNome: " + novoCliente.getNome() + "\nCPF: " + novoCliente.getCpf());
         } catch (Exception e) {
-            return new ResponseEntity<>("Erro ao criar cliente: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+            System.err.println("Erro ao tentar criar cliente: " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erro ao criar cliente: " + e.getMessage());
         }
     }
 }

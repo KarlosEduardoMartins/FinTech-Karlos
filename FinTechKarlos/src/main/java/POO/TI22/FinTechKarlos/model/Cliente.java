@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 
 public class Cliente {
+
     @NotBlank(message = "O nome não pode estar vazio")
     private String nome;
 
@@ -11,7 +12,11 @@ public class Cliente {
     @Pattern(regexp = "\\d{11}", message = "O CPF deve conter exatamente 11 dígitos")
     private String cpf;
 
-    // Construtor
+    // Construtor padrão (necessário para o Jackson)
+    public Cliente() {
+    }
+
+    // Construtor com argumentos
     public Cliente(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
