@@ -1,17 +1,23 @@
 package POO.TI22.FinTechKarlos.model;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Pattern;
+
 public class Cliente {
+    @NotBlank(message = "O nome não pode estar vazio")
     private String nome;
+
+    @NotBlank(message = "O CPF não pode estar vazio")
+    @Pattern(regexp = "\\d{11}", message = "O CPF deve conter exatamente 11 dígitos")
     private String cpf;
-    private String endereco;
-    private String telefone;
-    private String email;
-    
+
+    // Construtor
     public Cliente(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }
 
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -26,29 +32,5 @@ public class Cliente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
     }
 }
