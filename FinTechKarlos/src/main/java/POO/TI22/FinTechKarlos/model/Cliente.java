@@ -12,17 +12,14 @@ public class Cliente {
     @Pattern(regexp = "\\d{11}", message = "O CPF deve conter exatamente 11 dígitos")
     private String cpf;
 
-    // Construtor padrão (necessário para o Jackson)
     public Cliente() {
     }
 
-    // Construtor com argumentos
     public Cliente(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }
 
-    // Getters e Setters
     public String getNome() {
         return nome;
     }

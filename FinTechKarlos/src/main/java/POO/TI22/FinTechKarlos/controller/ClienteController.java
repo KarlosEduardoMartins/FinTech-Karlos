@@ -19,7 +19,7 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<?> criarCliente(@Valid @RequestBody Cliente cliente) {
         try {
-            Cliente novoCliente = clienteService.criarCliente(cliente);
+            Cliente novoCliente = clienteService.criarOuObterCliente(cliente);
             System.out.println("\nCliente criado: " + novoCliente.getNome() + ", CPF: " + novoCliente.getCpf() + ".");
             return ResponseEntity.status(HttpStatus.CREATED)
                     .body("Cliente criado com sucesso!\n" + "\nNome: " + novoCliente.getNome() + "\nCPF: " + novoCliente.getCpf());
