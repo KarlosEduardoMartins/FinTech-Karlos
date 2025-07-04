@@ -5,6 +5,10 @@ public class ContaPoupanca extends ContaBancaria {
         super(titular, saldo);
     }
 
+    public ContaPoupanca() {
+        super();
+    }
+
     public void renderJuros() {
         saldo *= 1.02;
     }
