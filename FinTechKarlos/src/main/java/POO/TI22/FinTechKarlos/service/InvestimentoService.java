@@ -47,6 +47,10 @@ public class InvestimentoService {
     
     public String simularInvestimento(String tipo, double valor) {
         Investimento simulacao = InvestimentoFactory.createInvestimento(tipo, valor);
-        return simulacao.calcularRetorno();
+        
+        String descricao = simulacao.getDescricao();
+        String retorno = simulacao.calcularRetorno();
+
+        return descricao + " " + retorno;
     }
 }
