@@ -1,5 +1,8 @@
 package POO.TI22.FinTechKarlos.model;
 
+import jakarta.persistence.Entity;
+
+@Entity
 public class ContaPoupanca extends ContaBancaria {
     public ContaPoupanca(Cliente titular, double saldo) {
         super(titular, saldo);

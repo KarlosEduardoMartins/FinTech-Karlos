@@ -5,6 +5,8 @@ import POO.TI22.FinTechKarlos.model.Cliente;
 import POO.TI22.FinTechKarlos.service.ClienteService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,9 +20,11 @@ import java.util.List;
 public class ClienteController {
 
     private final ClienteService clienteService;
+    private static final Logger logger = LoggerFactory.getLogger(ClienteController.class);
 
     @PostMapping
     public ResponseEntity<Cliente> criarCliente(@Valid @RequestBody Cliente cliente) {
+        logger.debug("Recebida requisição para criar cliente: {}", cliente.getNome());
         try {
             Cliente novoCliente = clienteService.criarCliente(cliente);
             return ResponseEntity.status(HttpStatus.CREATED).body(novoCliente);
@@ -33,6 +37,7 @@ public class ClienteController {
 
     @GetMapping
     public ResponseEntity<List<Cliente>> listarClientes() {
+        logger.debug("Recebida requisição para listar todos os clientes.");
         List<Cliente> clientes = clienteService.listarTodos();
         ApiConfigManager config1 = ApiConfigManager.getInstance();
         ApiConfigManager config2 = ApiConfigManager.getInstance();
@@ -45,6 +50,7 @@ public class ClienteController {
 
     @GetMapping("/{cpf}")
     public ResponseEntity<Cliente> buscarClientePorCpf(@PathVariable String cpf) {
+        logger.debug("Recebida requisição para buscar cliente com CPF: {}", cpf);
         try {
             Cliente cliente = clienteService.buscarPorCpf(cpf);
             return ResponseEntity.ok(cliente);
@@ -55,6 +61,7 @@ public class ClienteController {
 
     @PutMapping("/{cpf}")
     public ResponseEntity<Cliente> atualizarCliente(@PathVariable String cpf, @Valid @RequestBody Cliente cliente) {
+        logger.debug("Recebida requisição para atualizar cliente com CPF: {}", cpf);
         try {
             Cliente atualizado = clienteService.atualizarCliente(cpf, cliente);
             return ResponseEntity.ok(atualizado);
@@ -65,6 +72,7 @@ public class ClienteController {
 
     @DeleteMapping("/{cpf}")
     public ResponseEntity<Void> deletarCliente(@PathVariable String cpf) {
+        logger.debug("Recebida requisição para deletar cliente com CPF: {}", cpf);
         try {
             clienteService.deletarCliente(cpf);
             return ResponseEntity.noContent().build();
